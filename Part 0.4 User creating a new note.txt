@@ -1,0 +1,44 @@
+title User creating a new note
+
+
+browser->server: Form button clicked and user input is sent
+
+note over browser:
+submitting the form causes no less
+than 5 HTTP requests
+end note
+
+server-->browser: The server responds with HTTP status code 302. 
+
+note over server:
+This is a URL redirect, with which the server
+asks the browser to do a new HTTP GET request
+to the address defined in the header's Location
+end note
+
+browser->server: 3 more HTTP requests are made
+
+note over browser: 
+The style sheet (main.css)
+the JavaScript code (main.js)
+and the raw data of the notes (data.json)
+end note 
+
+note over server: 
+The server can access the data by accessing
+the req.body field of the request object req
+end note
+
+server-->browser: a new note object is created and is added to an array called notes.
+server-->browser: Data is sent as the body of the POST-request
+
+note over server:
+The code on the server responsible for the POST
+request is quite simple.this code is on the server, 
+and not on the JavaScript code fetched by the browse 
+end note
+
+note over browser:
+The Note objects have two fields: content containing 
+the actual content of the note, and date containing
+the date and time the note was created.
